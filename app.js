@@ -1,629 +1,241 @@
-//// #2.0 Your First JS Project
-// 자바스크립트 프로그래밍 언어를 다뤄보자
-// 브라우저의 console 사용하기
+//// #3.0 The Document Object
+// 자바스크립트가 브라우저에 어떻게 움직이는지 확인해보자
 
-// function 을 나중에 사용할 것이다
-// 자바스크립트는 항상 널 기다리고 있으니 넌 사용만 하면 돼
-alert("hi")
-// 알림창 발생
+// 자바크스립트를 사용하는 이유는, HTML과 상호작용하기 위해서!
+// 그 말은 HTML Element들을 JavaScript를 통해 변경하고, 읽을 수 있다는 말씀
 
-1 + 1
-// 2
+// 브라우저의 핵심 Object 를 보여줄게
+// document === HTML을 가리키는 객체(object)
+// 자바스크립트 관점으로 보여준다
 
-// 콘솔에서는 한 줄씩 작성 >>> make JS file
+// console.log(document.title) // Momentum
 
-// 새로운 파일에 자바스크립트 파일을 만들어볼겨
-// VScode 로 JS / CSS 를 작성해서 브라우저로 열면 작성한 텍스트를 보여준다
+// 이걸 보면 알 수 있듯이
+// 자바스크립트는 HTML 을 읽어오는 것
 
-// 우리는 브라우저에서 실행되는 걸 보고 싶다구 !
-// 브라우저가 자바크스립트 파일을 실행시키게 하고 싶다면?
-// 바로바로바로 **HTML**
+// 변경도 가능
+// document.title = "hi"
 
-// 브라우저는 HTML을 열고, HTML은 CSS와 JS를 가져온다
 
-// CSS >>> link
-// JS >>> script
 
 
 
+//// #3.1 HTML in Javascript
+// 특정한 무언가를 가져오기
+// id로 어떻게 가지고 올 수 있을까?
 
+// getElementById 함수
+// HTML 에서 id 를 통해 element 를 찾아준다
+// const title = document.getElementById("title");
+// console.log(title);
+// console.dir(title); // element 를 더 자세히 확인해보자
 
-//// #2.1 Basic Data Types
-// 데이터 타입 (type) 알아보기
+// 중요한 것 / 나중에 배울 것
+// textContent
+// outerHTML, outerText
+// localName
+// innerHTML, innerText
+// id
+// hidden
+// autofocus
 
-// 숫자 (number)
-2  
-// integer === full number(정수)
+// 자바스크립트로 html 변경하기 ~
+// title.innerText = "Got you!"
 
-1.5
-// float(소수…?)
-
-// 문자 (string)
-// hello (x)
-// “hello” >>> 숫자와 다르게 따옴표를 사용
-"hello" + " hye"
-
-// 자바스크립트는 어떻게 연산하는지 이미 알고 있다 우리는 타입을 잘 지정해서 작성해주면 된다
-
-
-
-
-
-//// #2.2  Variables
-// 콘솔에 메시지를 보내는 마술 같은 코드
-// 콘솔에 log(괄호) 안에 값을 출력해준다
-console.log(123); // 숫자
-console.log('hi'); // 문자열
-
-// 깜찍 계산기 만들기
-console.log(5 + 2);
-console.log(5 * 2);
-console.log(5 / 2);
-
-// 값을 변경하고 싶으면 어떻게 하면 좋을까?
-// 하나씩 바꾸려면 엄청 오래 걸린다
-
-// 우린 게을러져야돼
-// 가능한 코드 작성량을 줄이자
-
-// **변수 Variable**
-// 변수를 사용해보자
-// 값을 저장하거나 유지하는 역할 
-
-const a = 5; // const = constant(상수) = 바뀌지 않는 값 // a가 5라는 값을 가지고 있다는 뜻이야
-
-console.log(a + 2);
-console.log(a * 2);
-console.log(a / 2);
-
-// 더 게을러보자
-// 값을 2번만 바꿔주면 된다
-const b = 5; 
-const c= 2; // !== "2" 숫자와 문자열 구분하기 !
-
-console.log(b + c);
-console.log(b * c);
-console.log(b / c);
-
-// variable 이름 정하고 적어주는 법
-// 공백 대신 대문자로 / 낙타 등모양을 닮았다고 해서 카멜케이스(camel case)
-const veryLongVariableName = 5;
-
-// 오늘 배운 것
-// 게으른 개발자가 되기 위해 중요한 것이 뭔지 >>>
-// 어떻게 값을 variable 저장하고 나중에 사용하는지 >>>
-// 자바스크립트에서 변수 이름을 정하는 정하는 좋은 방법이나 관례 >>>
-
-
-
-
-
-//// #2.3 const and let
-let d = 5; // let 으로 바꾸면 바뀌는 게 뭘까? // 바뀌는 거 없음
-let e = 2; 
-let myName = 'hye';
-
-console.log(d + e);
-console.log(d * e);
-console.log(d / e);
-
-// const vs let
-// const >>> constant (상수) >>> 값이 바뀔 수 없다
-
-// variable 값을 변경할 필요가 있을까? >>> 가끔 필요할 수 있다
-// let 으로 한 번 변수를  생성하면 다시 let 으로 시작할 필요 없다
-myName = 'jae';
-console.log('your new name is ' + myName); // myName >>> 'jae'
-
-// 만약 const 로 변수를 선언한다면?
-// TypeError : Assignment to constant >>> 새로운 값을 대입할 수 없다 / 절대 값을 업데이트 할 수 없다
-
-// 변수를 어떤 키워드로 생성하는지를 보고 코드에서 사람의 의도를 알 수 있게 되었다
-// 어디에선가 값이 업데이트 될 수 있겠구나 / 절대 아니구나
-
-// 나는 뭘 써야 해?
-// const 를 기본적으로 사용한다 
-// 만약 변수를 업데이트 하고 싶다면 let을 사용
-
-// var
-// 원한다면 어디서든 업데이트를 할 수 있다
-// 언어를 통한 보호를 받지 못한다 / 실수로 값을 업데이트 해도 안 알려준다고요
-// 그래서 let, const 를 사용한다
-
-// 규칙
-// 기본적으로 const
-// 필요할 때만 let
-// 절대 쓰지 말아야 할 var
-
-
-
-
-
-//// #2.4 Booleans
-// 0 꺼졌다
-// 1 켜졌다
-
-// true 참
-// false 거짓
-
-const amIFat = true; // "true" <<< text!
-console.log(amIFat); // true
-
-// 예를 들어 
-// 사용자의 로그인 여부
-// 비디오 재생 여부
-// 웹사이트 로딩 여부
-
-// 존재하지 않음
-// 정의되지 않음
-// 아무것도 없음
-
-// null
-null !== false
-
-// false === false 라는 값이 존재한다
-// null === 아무것도 없음 === 변수에 아무것도 없음 === 아무것도 없는 상태로 채운 것 === 비워진 거랑은 다름
-
-// undefined
-let something;
-console.log(something);
-
-// 변수를 만들었지만 값을 주지 않았다 / 정의되지 않은 것
-// 컴퓨터 메모리 안에는 존재한다 / 공간은 있는데 값이 들어가지 않은 것
-
-// 기억해야 할 것
-// null 은 절대 자연적으로 발생하지 않는다
-// 변수 안에 어떤 것이 없다는 것을 확실하기 위해서 쓴다
-// 값이 '없다'(비어있음)는 것을 알려줄 때 사용 / 비어있어요를 의도적으로 표현한 것
-// undefined 은 변수가 메모리에는 있는데 값이 없는 것
-
-
-
-
-
-//// #2.5 Arrays
-// 데이터를 정리하는 법
-// 데이터 구조
-// 데이터를 어떻게 하면 가능한 최선의 방법으로 정리할 수 있을까
-// 사람들은 자료의 검색이나 삽입을 빠르게 할 수 있는 데이터의 저장 방법에 대해 생각하는 데 시간을 쏟아
-
-// 가장 기본적인 데이터 구조 === array(배열)
-
-// 배열 없는 세상
-// 일주일의 요일들 만들기
-const mon = "mon";
-const tue = "tue";
-const wed = "wed";
-const thu = "thu";
-const fri = "fri";
-const sat = "sat";
-const sun = "sun";
-
-// 효율적이지 않다
-// 리스트로 그룹화 시키고 싶다면? >>> 하나하나 이어 붙이기
-// 매우 긴 변수를 가지게 됐다
-const daysOfWeek = mon + tue + wed + thu + fri + sat + sun;
-console.log(daysOfWeek) // montuewedthufrisatsun
-
-//  잘 만들었다고 보기 힘들다
-//  만약 일주일에 첫번째 요일을 요청해도 접근할 수 없다
-
-//  array 를 사용해보자
-// + 를 (,) 로 바꾸로 [] 대괄호로 묶어주자
-// 그럼 문자열에서 배열로 바껴버림
-// [] 대괄호 안에 내가 원하는 건 뭐든지 입력할 수 있다
- const daysOfWeeks = ["mon", "tue", "wed", "thu", "fri", "sat"];
-
-//  콘솔에서 확인해보면 뭔가 다르다
-//  (7) 7개의 요소가 있고 각각의 항목도 따로 볼 수 있다
-//  데이터로 이뤄진 리스트를 만들었어요 ! 
-
-// array 에서 값을 찾는 법
-// 변수 이름을 적어주고 대괄호안에 얻고 싶은 항목의 번호를 적어주자
-// Get Item from Array
-console.log(daysOfWeeks[5])
-// 헉 sat 를 받았어
-// 컴퓨터는 0부터 센다구 / 그래서 4를 넣어주자!
-
-// Add one more day to the array
-daysOfWeeks.push("sun");
-console.log(daysOfWeeks) // sun 추가
-
-//  array 의 목적
-//  하나의 변수 안에 데이터 리스트를 가지는 것 !
-
-
-
-
-
-//// #2.6 Objects 
-// xx.xx 를 우리가 직접 만들어보자
-
-// 객체 없는 세상
-// 예시) 비디오 게임 캐릭터
-const playerName = "hye";
-const playerPoints = 100;
-const playerColor = "blue";
-
-// 플레이어에 대해 구성됐다
-// 문제는 계속 봐왔던 것과 좀 다르다
-
-// 우리가 원하는 것
-// 왜냐면 이것들이 하나의 개체(entity), 즉 player 에 대해 설명하고 있기 때문이다
-// 이렇게 쓰는 게 더 잘 정돈되잖수
-// player.name
-// player.points
-// player.color
-
-// 우리의 목표는 데이터를 최선을 정리하는 것
-// 변수는 좋아보이지 않는다
-
-// 배열을 사용해보자
-// 이것도 적합하지 않다 / 배열의 요소들이 무슨 의미인지 모른다
-// 주석을 사용해서 정보를 작성한다
-// player[0] == name
-// player[1] == points
-const players = ["hye", 100, "blue"];
-
-// 더 좋은 방법이 뭘까
-// Object 를 만들어보자
-// {} 중괄호를 작성한다 / = 대신 : 사용 / property 작성 후 , 로 이어나간다
-const player = {
-    name: "hye",
-    points: 100,
-    color: "blue"
-}
+// getElementById 함수
+// HTML 에서 id 를 통해 element 를 찾아준다
 
 // 우리가 할 수 있는 것
-console.log(player); // player 통째로 알기
-console.log(player.name); // player 이름만 알기
-
-// console.log
-// player.name
-// 어라라 보세요
-// 비슷하지 않습니까??
-// console 도 object 라는 것이고 그 안의 어딘가에 log 라는 것이 있다는 의미
-
-// Object 는 리스트가 아니다
-// 리스트는 모든 값이 같은 의미를 가진다 !
-// Object 에는 무엇인지 알 수 없는 property 들도 있다
-
-// 접근하는 방법 2가지
-player.name
-player["name"]
-
-// 값을 업데이트할 수도 있다
-// 엏 근데 const 도 정의했는데 어떻게 바뀌죠?
-// 우리는 object 안의 무언가를 수정하는 것이다 / object 는 동일함
-
-// 가능 / const 안의 무언가를 업데이트할 때는 문제 없다
-player.color = "pink";
-// 불가능 / 전체를 하나의 값으로 업데이트 하려고 할 때
-// player = "pink";
-
-// object 에 추가하기
-// 어떤 것이든 property 로 맹글 수 있다
-player.lastName = "ji";
-
-// Object
-// property를 가진 데이터를 저장해준다
-// 접근할 수 있고 새로 만들수도 있다
+// document 항목들을 가지고 오기
+// document 항목들을 변경하기
 
 
 
 
-//// #2.7 Functions part One
-// function 만드는 법 배우기
-// what is function ? >>> 계속 반복해서 사용할 수 있는 코드 조각
 
-// 우리가 넘겨주는 어떠한 이름이든 Hello 를 해주는 function 을 만들어보자
-// function 없는 세상
-console.log("hello my name is hye");
-console.log("hello my name is eun");
-console.log("hello my name is jae"); 
+//// #3.2 Searching For Elements 
+// 저번 시간엔 HTML코드와 HTML element를 JS로 접근하는 방법을 배웠다
+// id 를 사용해서 말이지
+// 보통은 className 을 사용
 
-// 너무 많은 console.log
-// 코드에서 바뀌는 부분은 이름 뿐
-// 우리의 목표: 친구들에게 인사하기 && 코드의 반복을 최소화하기
+// class 로 바꿔주면 에러가 발생한다
+// Uncaught TypeError: Cannot set properties of null (setting 'innerText')at app.js:43:17
+// null 의 innerText property 를 바꿀 수 없다 는 오류
+// 왜 이런 에러가 생겼을 까
+// 코드 내에 어떤 값이 null 이라는 뜻
+// 아무것도 없는 값에 innterText 에 접근하려고 한 것 !
 
-// function 을 사용하자
-// 어떤 코드를 캡슐화해서, 실행을 여러 번 할 수 있게 해준다 / like 노래 반복 / 끝나면 다시 재생 가능
-// function 은 () 소괄호가 필요하다
-function sayHello(){
-    // 코드블록 안에 작성되는게 실행버튼을 누를 때 실행되는 거야
-    console.lot("Hello!");
+// 이런 에러가 발생하면 어떻게 하는지 알겠죠?
+// 찾아오려는 id 가 없으니까 생기는 오류입니다
+
+// getElementsByClassName 함수
+// Element 를 한 번에 많이 가져와햐 하는 경우
+// const hellos = document.getElementsByClassName("hello");
+// console.log(hellos); // array 로 값이 보여준다 [h1, h1, h1]
+
+// div 안에 있는 h1 가져오기
+// <div class="hello">
+//     <h1>Grab me!</h1>
+// </div>
+
+// 가져오기 위해서 함수를 만들어보자
+// h1 하나만 가져오고 싶어
+// const title = document.getElementsByTagName("h1");
+// console.log(title); // 좋지 않아 이것도 배열로 가져오기 때문이지 [h1] / 우리가 만들 배열로 뭘 해줄 수가 없엉
+
+// 니코가 생각하는 element 를 가지고 오는 가장 멋진 방법
+// querySelector / querySelectorAll
+// element 를 CSS 방식으로 검색할 수 있다
+
+// const title = document.querySelectorAll(".hello h1");
+// console.log(title); 
+
+// 똑같은 태그들이 있다면 어떤 걸 출력해줄까?
+// <div class="hello">
+//     <h1>Grab me!</h1>
+// </div> X 3
+
+const title = document.querySelector(".hello h1");
+console.log(title); // 맨 첫번째 요소만 출력합니당
+
+// 같은 코드
+// const title = document.querySelector("#hello"); === 
+// const title = document.getElementById("hello");
+
+
+// 함수 정리
+// getElementsByClassName 함수
+// Element 를 한 번에 많이 가져와햐 하는 경우
+
+// getElementsByTagName 함수
+// tag name 을 입력해서 Element 를 가져올 수 있다
+
+// querySelector 함수
+// element 를 CSS 방식으로 검색할 수 있다
+// 하나의 element 를 return 해준다 / 맨 첫번째 요소만 출력합니당
+
+// querySelectorAll 함수
+// selector 안의 조건에 부합하는 모든 Element 를 가져다준다 // 배열로 !
+
+
+
+
+
+//// #3.3 Events
+// app.js 가 있기 때문에 js 를 통해 HTML 의 내용을 가져올 수 있어
+// html에 app.js 를 import 해주었기 때문이지
+
+// Element 의 내부를 보고 싶다면 console.dir 를 사용해보자
+// object 로 표시한 element 를 보여준다
+
+// 많은 property 중에 sytle을 알아보자
+// xx.style.color
+// title.style.color = "blue"
+
+// 우리가 자바스크립트에서 대부분 작업할 일은 event를 listen 하는 것!
+// on 으로 시작하는 것들 === event
+
+// what is event?
+// 내가 click 하면 its event
+// mouse 가 tag 위로 올라가도 event
+// 입력을 끝내거나 이름을 적거나 enter 를 눌러도 event
+
+// click event 를 배워보자
+function handleTitleClick(){
+    console.log("title was clicked");
+    title.style.color = "blue"
 }
 
-// console.log()
-// Array.push()
-// alert()
-// () 이 괄호 두 개가 함수를 실행하는 방법
-
-sayHello();
-sayHello();
-sayHello(); // 3번 실행
-
-// 이 function은 같은 결과를 반복해서 내고 있다
-// 우리가 원하는 것은 Hello my name is 다른 이름들
-// 다른 이름들을 만들기 위해서는 argument(인수) 라는 것을 보내야 한다리
-// 인수는 함수를 실행한는 동안 어떤 정보를 함수에게 보낼 수 있는 방법 !
-
-// 우린 이미 해봤어
-alert(); // 아무것도 없어 / 아무것도 안 적어줬으니까
-sayHello();
-
-// 함수 실행버튼을 누르면서 뭔가를 보내는 법을 배워보자
-// 함수 바깥에서는 어떻게 하는지 알고 있지.
-// 정보를 보내려면 ()소괄호 안에 데이터를 넣어주면 된다
-function sayHello(){
-    console.lot("Hello my name is C");
-}
-
-sayHello("hye");
-sayHello("eun");
-sayHello("jae"); 
-
-// 근데 우리는 함수를 만들 때 어떻게 이걸 표현해야 할지 몰라
-// 우리는 함수를 실행하면서 데이터는 보내는 법을 알아
-// 우리의 함수는 데이터를 받아서 C 에 전달해줘야 돼
-
-
-
-
-//// #2.8 Functions part Two
-// 우린 이제 함수에 값이나 데이터를 보내는 방법을 알아
-// 이제 어떻게 받아야 하는지 알아보자
-// () 소괄호 안에 데이터를 넣어주자구
-function sayHello(nameOfPerson){ // 그 데이터를 쓸거라고 ~ // 인수는 여러개 맹글어도 됩니다
-    console.log("Hello my name is " + nameOfPerson);
-}
-
-sayHello("hye"); // 데이터가 들어오면
-sayHello("eun");
-sayHello("jae"); 
-
-
-// 간단한 계산기를 만들어보자
-function plus(a, b){ // () 소괄호 안에는 어떤 이름이든 너 마음대로 넣어도 돼
-    console.log(a + b);
-;}
-
-// 데이터를 보내지 않으면 무슨 일이 일어날까? >>> undefined undefined
-// 데이터 받는 인수들이 적었는데 데이터(숫자(?)를 안 주면? >>> NaN / Not a Number
-plus();
-
-// 데이터를 받는 방법이야. 순서는 매우매우 중요해!
-plus(1, 2); // a = 1 / b = 2
-
-function divied(a, b){
-    console.log(a / b);
-}
-divied(20, 5);
-
-// 데이터를 함수에 보내는 방법을 알아봤어
-// a는 해당 함수 안에서만 존재해
-// 만약 밖에서 호출한다면 에러가 발생해!
-// 왜냐면 a는 블혹 밖에서 존재할 수 없어
-
-// player.sayHello() 같은 것을 만들어 보자
-// console.log() 랑 엄청 비슷하게 생겼어
-
-const playerr = {
-    name: "hye",
-    // 함수를 넣어줄거야
-    // 근데 좀 다르지
-    // 기존에 그냥 만들었던 함수 >>> function sayHello(){}
-    // 그치만 object 안에서는 좀 다르다 / 이름 위치가 바뀐 것 뿐 !
-    sayHello: function(otherPersonsName){
-        console.log("hello! " + otherPersonsName + " nice to meet you!");
-    },
-};
-
-console.log(playerr.name);
-// 우리만의 object 와 function 을 만들었다 이야호 ~
-playerr.sayHello("jae");
+title.addEventListener("click", handleTitleClick); // 이벤트가 발생하면 함수를 실행시켜줘라 
+// 두번째 인자로 넣는 함수는 함수() 실행시키면 안된다 ! 괄호 넣지 말기 !
 
 // 정리
-// 함수에 정보를 보내는 방법
-// 함수에 정보를 받는 방법 
-// 함수를 실행하는 방법
+// addEventListener 이벤트함수
+// 말 그대로 event 를 listen 한다
 
-// 헷갈렸던 문제들 ( 영어 ^^ )
-// encapsulate / 캡슐화하다
-
-// Why do we use ‘arguments’ on functions?
-// To send a value to a function.
-
-// Why do we use ‘return’ on functions?
-// To get a value from a function
+// click
+// 클릭하면 이벤트 발생 !
 
 
 
 
 
-//// #2.11 Returns
-// console.log
-// 말 그대로 콘솔에 무언가를 기록해서 보여주는 것
+//// #3.4 Events part Two
+// event 찾아보기
+// 1. mdn
+// 2. console.dir(element) // on 시작하는 것들 !
 
-// function 밖에서 결과값을 얻어보고 싶다
-
-// const calculator = {
-//     plus: function (a, b){
-//         console.log(a + b)
-//     },
-//     minus: function (a, b){
-//         console.log(a - b)
-//     },
-//     times: function (a, b){
-//         console.log(a * b)
-//     },
-//     divide: function (a, b){
-//         console.log(a / b)
-//     },
-//     power: function (a, b){
-//         console.log(a ** b)
-//     },
-// };
-
-// function 이 계산의 결과를 나에게 제공하는 것
-// console.log 를 alert으로 바꾸면? 경고가 일어나고 끝난다
-// 그렇다면 plus 가 실행되고 나면 plus 의 값은 뭐가 될까? >>> undefined
-
-// function 나를 위해 무언가를 해주는 것
-// 함수를 20번 호출하면 20번 실행된다
-
-// 함수로부터 결과 값을 얻기를 원한다
-// 이 계산에서 결과를 코드로 '받고' 싶어 
-// 함수가 어떤 일을 수행하고 그 결과를 알려주는 것이라고 생각해보자
-
-// 한국 나이를 계산하는 function
-const age = 96;
-function calculateKrAge(ageOfForeigner){
-    // return 을 해줍시다
-    return ageOfForeigner + 2;
+// ouseenter 이벤트함수 를 사용해보자
+function handleMouseEnter(){
+    console.log("mouse is here")
+    title.innerText = "Mouse is here"
 }
 
-// 함수의 결과와 같은 변수를 만들어보자
-const KrAge = calculateKrAge(age);
-console.log(KrAge); // undefined
+title.addEventListener("mouseenter", handleMouseEnter)
 
-// 왜 undefined 가 나왔을까?
-// 우리가 빠뜨린 건 return
-
-// 어떻게 실행되는지 살펴보자
-
-// const age = 96;
-// function calculateKrAge((2= 96)){
-//     return (3= 96) + 2; // (4= 98)
-// }
-
-// const KrAge = calculateKrAge((1= 96)); // (5= 98)
-// console.log(KrAge); // (6= 98)
-
-// 우린 이제 console 에 출력하려고 function 을 쓰지 않을거야
-// 대신 어떤 작업을 처리하고 그 결과를 return 하기 위해 사용할거야
-// return ageOfForeigner + 2; <<< 함수 밖과 소통하는 방법
-
-// 무언가를 return 하면 계산을 담당하는 함수의 코드는 함수가 리턴하는 값과 같아진다
-
-// const age = 96;
-// function calculateKrAge(ageOfForeigner){
-//  ageOfForeigner + 2;
-//  return "hello" <<<< return 되는 값은 우리랑 연산한거랑 상관없다구
-// }
-
-// const KrAge = calculateKrAge(age);
-// console.log(KrAge); 
-
-const calculator = {
-    plus: function (a, b){
-        return a + b
-    },
-    minus: function (a, b){
-        return a - b
-    },
-    times: function (a, b){
-        return a * b
-    },
-    divide: function (a, b){
-        return a / b
-    },
-    power: function (a, b){
-        return a ** b
-    },
-};
-
-const plusResult = calculator.plus(2, 3);
-const minusResult = calculator.minus(plusResult, 10);
-const timesResult = calculator.times(10, minusResult);
-const divideResult = calculator.divide(timesResult, plusResult);
-const powerResult = calculator.power(divideResult, minusResult);
-
-// 위 코드들은 상호의존적이다
-// 콘솔에서 값을 가져올 수 없었다 콘솔은 보여주기만 할뿐
-
-// return 을 하는 순간 function 은 종료된다
-
-
-
-
-
-//// #2.13 Conditionals
-// 조건문
-// 참/거짓을 확인하기 위해
-
-// 키워드 if, else
-
-// 음주가 가능한지 알려주는 계산기
-
-// prompt 함수
-// 사용자에게 창을 띄울 수 있도록 해준다
-// 인자 2개 / message, default
-// prompt 는 오래된 방식이다
-
-// const age = prompt("how old are you?")
-// console.log(age)
-// cancel 을 누르면 null
-
-// const age = prompt("how old are you?")
-// console.log(typeof age);
-
-// 타입을 바꿔보자
-// parseInt 함수
-// "123" / 알아들음
-// "hi" / 못 알아들음
-"15" > 15
-console.log(typeof "15", typeof parseInt("15"))
-// string number
-
-const agea = parseInt(prompt("how old are you?"));
-console.log(agea);
-
-
-
-
-//// #2.14 Conditionals part Two
-// type 을 바꾸는 법을 배웠어
-
-// isNaN 함수
-// NaN 인지 판별하는 방법을 배워보자
-// NaN 인지 Boolean으로 알려줄거야
-
-const ages = parseInt(prompt("how old are you?")); // 여기에 값을 받아 // parseInt 로 숫자로 변경 / 근데 문자열을 넣었다면 NaN 가 되버림
-
-if(isNaN(ages)){ // age 가 NaN 가 맞다면
-    // condition === true
-    console.log("Please write a number");
-} else {
-    console.log("Thank you for writing your age")
+// mouseleave 를 사용해보자
+function handleMouseLeave(){
+    title.innerText = "Mouse is gone"
 }
 
+title.addEventListener("mouseleave", handleMouseLeave)
+
+// mouseenter
+// 마우스가 해당 요소에 올려지면 이벤트 발생!
+
+// mouseleave
+// 마우스가 해당 요소에서 떨어지면 이벤트 발생!
 
 
 
-//// #2.15 Conditionals part Three (13:49)
-// else if
-// AND && 
-// OR ||
 
-const aged = parseInt(prompt("how old are you?")); // 여기에 값을 받아 // parseInt 로 숫자로 변경 / 근데 문자열을 넣었다면 NaN 가 되버림
 
-if(isNaN(aged) || aged < 0){ // age 가 NaN 가 맞다면 // 두 가지 조건 중 하나만 맞아도 실행
-    // condition === true
-    console.log("Please write a real positive number");
-} else if(aged < 18){
-    console.log("You are too young");
-} else if(aged >= 18 && aged <= 50){ // 두 가지 조건을 동시에 만족 AND operator
-    console.log("you can drink");
-} else if(aged > 50 && aged <= 80){
-    console.log("you should exercise");
-} else if(aged > 80){
-    console.log("You can do whatever you want");
+//// #3.5 More Events
+// event 를 사용하는 두 가지 방법
+// 1. title.addEventListener() / title.addEventListener("click", handleTitleClick)
+// 2. title.onclick() / title.onclick = handleTitleClick;
+
+// 니코가 addEventListener 를 더 선호하는 이유
+// 나중에 removeEventListener 를 통해서 이벤트를 제거할 수 있다
+
+// window 의 event 를 더 알아보자
+// resize event 알아보자
+function handleWindowResize(){
+    document.body.style.backgroundColor = "tomato"; // window 의 화면크기가 바뀔 경우에 스타일을 줄겨
 }
 
+window.addEventListener("resize", handleWindowResize);
 
+// copy event 를 알아보자
+function handleWindowCopy(){
+    alert("copier!");
+}
 
+window.addEventListener("copy", handleWindowCopy);
 
-//// #2.16 Recap
-// === 동일한가
-// !== 동일하지 않은가
+// offline event
+function handleWindowOffline(){
+    alert("SOS no WIFI");
+}
+
+window.addEventListener("offline", handleWindowOffline);
+
+// online event
+function handleWindowOnline(){
+    alert("ALL GOOOOOOD");
+}
+
+window.addEventListener("online", handleWindowOnline);
+
+// event 정리
+// resize
+// window 화면이 바뀔 때 이벤트 발생 !
+
+// copy
+// window 화면이 복사를 할 때 (ctrl + c)이벤트 발생 !
+
+// offline
+// wifi가 연결이 안되어있을 때 이벤트 발생 !
+
+// online
+// wifi가 연결 되어있을 때 이벤트 발생 !
