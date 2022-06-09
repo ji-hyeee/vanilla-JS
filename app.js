@@ -427,3 +427,203 @@ playerr.sayHello("jae");
 // 함수에 정보를 보내는 방법
 // 함수에 정보를 받는 방법 
 // 함수를 실행하는 방법
+
+// 헷갈렸던 문제들 ( 영어 ^^ )
+// encapsulate / 캡슐화하다
+
+// Why do we use ‘arguments’ on functions?
+// To send a value to a function.
+
+// Why do we use ‘return’ on functions?
+// To get a value from a function
+
+
+
+
+
+//// #2.11 Returns
+// console.log
+// 말 그대로 콘솔에 무언가를 기록해서 보여주는 것
+
+// function 밖에서 결과값을 얻어보고 싶다
+
+// const calculator = {
+//     plus: function (a, b){
+//         console.log(a + b)
+//     },
+//     minus: function (a, b){
+//         console.log(a - b)
+//     },
+//     times: function (a, b){
+//         console.log(a * b)
+//     },
+//     divide: function (a, b){
+//         console.log(a / b)
+//     },
+//     power: function (a, b){
+//         console.log(a ** b)
+//     },
+// };
+
+// function 이 계산의 결과를 나에게 제공하는 것
+// console.log 를 alert으로 바꾸면? 경고가 일어나고 끝난다
+// 그렇다면 plus 가 실행되고 나면 plus 의 값은 뭐가 될까? >>> undefined
+
+// function 나를 위해 무언가를 해주는 것
+// 함수를 20번 호출하면 20번 실행된다
+
+// 함수로부터 결과 값을 얻기를 원한다
+// 이 계산에서 결과를 코드로 '받고' 싶어 
+// 함수가 어떤 일을 수행하고 그 결과를 알려주는 것이라고 생각해보자
+
+// 한국 나이를 계산하는 function
+const age = 96;
+function calculateKrAge(ageOfForeigner){
+    // return 을 해줍시다
+    return ageOfForeigner + 2;
+}
+
+// 함수의 결과와 같은 변수를 만들어보자
+const KrAge = calculateKrAge(age);
+console.log(KrAge); // undefined
+
+// 왜 undefined 가 나왔을까?
+// 우리가 빠뜨린 건 return
+
+// 어떻게 실행되는지 살펴보자
+
+// const age = 96;
+// function calculateKrAge((2= 96)){
+//     return (3= 96) + 2; // (4= 98)
+// }
+
+// const KrAge = calculateKrAge((1= 96)); // (5= 98)
+// console.log(KrAge); // (6= 98)
+
+// 우린 이제 console 에 출력하려고 function 을 쓰지 않을거야
+// 대신 어떤 작업을 처리하고 그 결과를 return 하기 위해 사용할거야
+// return ageOfForeigner + 2; <<< 함수 밖과 소통하는 방법
+
+// 무언가를 return 하면 계산을 담당하는 함수의 코드는 함수가 리턴하는 값과 같아진다
+
+// const age = 96;
+// function calculateKrAge(ageOfForeigner){
+//  ageOfForeigner + 2;
+//  return "hello" <<<< return 되는 값은 우리랑 연산한거랑 상관없다구
+// }
+
+// const KrAge = calculateKrAge(age);
+// console.log(KrAge); 
+
+const calculator = {
+    plus: function (a, b){
+        return a + b
+    },
+    minus: function (a, b){
+        return a - b
+    },
+    times: function (a, b){
+        return a * b
+    },
+    divide: function (a, b){
+        return a / b
+    },
+    power: function (a, b){
+        return a ** b
+    },
+};
+
+const plusResult = calculator.plus(2, 3);
+const minusResult = calculator.minus(plusResult, 10);
+const timesResult = calculator.times(10, minusResult);
+const divideResult = calculator.divide(timesResult, plusResult);
+const powerResult = calculator.power(divideResult, minusResult);
+
+// 위 코드들은 상호의존적이다
+// 콘솔에서 값을 가져올 수 없었다 콘솔은 보여주기만 할뿐
+
+// return 을 하는 순간 function 은 종료된다
+
+
+
+
+
+//// #2.13 Conditionals
+// 조건문
+// 참/거짓을 확인하기 위해
+
+// 키워드 if, else
+
+// 음주가 가능한지 알려주는 계산기
+
+// prompt 함수
+// 사용자에게 창을 띄울 수 있도록 해준다
+// 인자 2개 / message, default
+// prompt 는 오래된 방식이다
+
+// const age = prompt("how old are you?")
+// console.log(age)
+// cancel 을 누르면 null
+
+// const age = prompt("how old are you?")
+// console.log(typeof age);
+
+// 타입을 바꿔보자
+// parseInt 함수
+// "123" / 알아들음
+// "hi" / 못 알아들음
+"15" > 15
+console.log(typeof "15", typeof parseInt("15"))
+// string number
+
+const agea = parseInt(prompt("how old are you?"));
+console.log(agea);
+
+
+
+
+//// #2.14 Conditionals part Two
+// type 을 바꾸는 법을 배웠어
+
+// isNaN 함수
+// NaN 인지 판별하는 방법을 배워보자
+// NaN 인지 Boolean으로 알려줄거야
+
+const ages = parseInt(prompt("how old are you?")); // 여기에 값을 받아 // parseInt 로 숫자로 변경 / 근데 문자열을 넣었다면 NaN 가 되버림
+
+if(isNaN(ages)){ // age 가 NaN 가 맞다면
+    // condition === true
+    console.log("Please write a number");
+} else {
+    console.log("Thank you for writing your age")
+}
+
+
+
+
+//// #2.15 Conditionals part Three (13:49)
+// else if
+// AND && 
+// OR ||
+
+const aged = parseInt(prompt("how old are you?")); // 여기에 값을 받아 // parseInt 로 숫자로 변경 / 근데 문자열을 넣었다면 NaN 가 되버림
+
+if(isNaN(aged) || aged < 0){ // age 가 NaN 가 맞다면 // 두 가지 조건 중 하나만 맞아도 실행
+    // condition === true
+    console.log("Please write a real positive number");
+} else if(aged < 18){
+    console.log("You are too young");
+} else if(aged >= 18 && aged <= 50){ // 두 가지 조건을 동시에 만족 AND operator
+    console.log("you can drink");
+} else if(aged > 50 && aged <= 80){
+    console.log("you should exercise");
+} else if(aged > 80){
+    console.log("You can do whatever you want");
+}
+
+
+
+
+//// #2.16 Recap
+// === 동일한가
+// !== 동일하지 않은가
