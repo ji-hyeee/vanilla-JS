@@ -95,8 +95,8 @@
 //     <h1>Grab me!</h1>
 // </div> X 3
 
-const title = document.querySelector(".hello h1");
-console.log(title); // 맨 첫번째 요소만 출력합니당
+// const title = document.querySelector(".hello h1");
+// console.log(title); // 맨 첫번째 요소만 출력합니당
 
 // 같은 코드
 // const title = document.querySelector("#hello"); === 
@@ -141,12 +141,12 @@ console.log(title); // 맨 첫번째 요소만 출력합니당
 // 입력을 끝내거나 이름을 적거나 enter 를 눌러도 event
 
 // click event 를 배워보자
-function handleTitleClick(){
-    console.log("title was clicked");
-    title.style.color = "blue"
-}
+// function handleTitleClick(){
+//     console.log("title was clicked");
+//     title.style.color = "blue"
+// }
 
-title.addEventListener("click", handleTitleClick); // 이벤트가 발생하면 함수를 실행시켜줘라 
+// title.addEventListener("click", handleTitleClick); // 이벤트가 발생하면 함수를 실행시켜줘라 
 // 두번째 인자로 넣는 함수는 함수() 실행시키면 안된다 ! 괄호 넣지 말기 !
 
 // 정리
@@ -166,19 +166,19 @@ title.addEventListener("click", handleTitleClick); // 이벤트가 발생하면 
 // 2. console.dir(element) // on 시작하는 것들 !
 
 // ouseenter 이벤트함수 를 사용해보자
-function handleMouseEnter(){
-    console.log("mouse is here")
-    title.innerText = "Mouse is here"
-}
+// function handleMouseEnter(){
+//     console.log("mouse is here")
+//     title.innerText = "Mouse is here"
+// }
 
-title.addEventListener("mouseenter", handleMouseEnter)
+// title.addEventListener("mouseenter", handleMouseEnter)
 
-// mouseleave 를 사용해보자
-function handleMouseLeave(){
-    title.innerText = "Mouse is gone"
-}
+// // mouseleave 를 사용해보자
+// function handleMouseLeave(){
+//     title.innerText = "Mouse is gone"
+// }
 
-title.addEventListener("mouseleave", handleMouseLeave)
+// title.addEventListener("mouseleave", handleMouseLeave)
 
 // mouseenter
 // 마우스가 해당 요소에 올려지면 이벤트 발생!
@@ -200,32 +200,32 @@ title.addEventListener("mouseleave", handleMouseLeave)
 
 // window 의 event 를 더 알아보자
 // resize event 알아보자
-function handleWindowResize(){
-    document.body.style.backgroundColor = "tomato"; // window 의 화면크기가 바뀔 경우에 스타일을 줄겨
-}
+// function handleWindowResize(){
+//     document.body.style.backgroundColor = "tomato"; // window 의 화면크기가 바뀔 경우에 스타일을 줄겨
+// }
 
-window.addEventListener("resize", handleWindowResize);
+// window.addEventListener("resize", handleWindowResize);
 
-// copy event 를 알아보자
-function handleWindowCopy(){
-    alert("copier!");
-}
+// // copy event 를 알아보자
+// function handleWindowCopy(){
+//     alert("copier!");
+// }
 
-window.addEventListener("copy", handleWindowCopy);
+// window.addEventListener("copy", handleWindowCopy);
 
-// offline event
-function handleWindowOffline(){
-    alert("SOS no WIFI");
-}
+// // offline event
+// function handleWindowOffline(){
+//     alert("SOS no WIFI");
+// }
 
-window.addEventListener("offline", handleWindowOffline);
+// window.addEventListener("offline", handleWindowOffline);
 
-// online event
-function handleWindowOnline(){
-    alert("ALL GOOOOOOD");
-}
+// // online event
+// function handleWindowOnline(){
+//     alert("ALL GOOOOOOD");
+// }
 
-window.addEventListener("online", handleWindowOnline);
+// window.addEventListener("online", handleWindowOnline);
 
 // event 정리
 // resize
@@ -239,3 +239,117 @@ window.addEventListener("online", handleWindowOnline);
 
 // online
 // wifi가 연결 되어있을 때 이벤트 발생 !
+
+
+
+
+
+//// #3.6 CSS in Javascript
+// 이번에 하고 싶은 건 말이지
+// handleTitleClick 함수에 초점을 맞춰보자
+// 유저가 title을 click 했을 때 title을 파란색으로 칠하자
+// 한 번 더 누르면 title 의 색깔을 tomato 로 변경해보자
+// 파랑, 토마토, 파랑, 토마토
+
+// const title = document.querySelector(".hello h1");
+
+// function handleTitleClick() {
+    // title의 상태 확인하기
+    // console.log(title.style.color); // getter
+    // title.style.color = "blue"      // setter
+    // console.log(title.style.color); // getter again
+
+    // 색깔 바꿔주기
+    // if(title.style.color === "blue"){
+    //     title.style.color = "tomato";
+    // } else{
+    //     title.style.color = "blue"
+    // }
+
+    // 코드를 깔끔하게 만들어주자
+    // title.style.color 를 많이 적는 것보단 이 상태를 저장하는 것을 해보자
+//     const currentColor = title.style.color;
+//     let newColor; // 바뀔 수 있는 변수 / 비어있다
+//     if (currentColor === "blue") {
+//         newColor = "tomato";
+//     } else {
+//         newColor = "blue"
+//     }
+//     title.style.color = newColor; // title 에는 영향을 미치지 않는다 그래서 재할당!
+// }
+
+// title.addEventListener("click", handleTitleClick);
+
+// style 작업은 CSS 파일에서 작업하자
+// 이벤트 스텝들
+// 1. element 를 찾아라
+// 2. event 를 listen 해라
+// 3. event 에 반응해라 / 반응 = 무언가를 보여주거나, 감추거나, 색깔을 바꾸는 등
+
+
+
+
+
+//// #3.7 CSS in Javascript part Two
+// 우린 자바스크립트에 스타일을 적용시키지 않을거야.
+// const title = document.querySelector(".hello h1");
+
+// function handleTitleClick() {
+//     // 내가 하고 싶은건 .active class 를 h1 에 전달하는 거야 >>> 자바스크립트
+//     // title.className = "active"  // class를 부여해서 색이 바뀌어 버리는
+
+//     // title.className 은 getter 이면서 setter 이다 / 뭔 말이냐면
+//     // 콘솔로 출력하면 확인할 수 있듯이 값을 얻어올 수도, 변경할 수도 있다
+
+//     // if(title.className === "active"){ // 같은지 비교
+//     //     title.className = ""; // 값 할당
+//     // } else {
+//     //     title.className = "active";
+//     // }
+
+//     // 위 코드에서 우린 "active" 를 두번 쓰고 있어
+//     // 이것들은 error 의 위험이 있지
+//     // active 는 우리가 지어준 이름이야 / 바뀔 수 있다구 / 오타를 낼 수도 있다구
+//     // 변수에 할당해주자
+//     const clickedClass = "clicked";
+//     if(title.className === clickedClass){ 
+//         title.className = ""; 
+//     } else {
+//         title.className = clickedClass; 
+//         // 자바스크립트는 기존에 있는 class 를 생각하지 않고 냅다 바꿔버려
+//         // 우리가 해줘야 하는건 자바스크립트로 모든 class 이름을 변경하지는 않는 것
+//         // 기존에 있던 class 는 남기고 clicked 만 변경하고 싶다고
+//     }
+// }
+
+// title.addEventListener("click", handleTitleClick);
+
+
+
+
+
+//// #3.8 CSS in Javascript part Three
+// 지난 번에 어떻게 element 에서 class name 을 변경하고, 제거하고, 추가하는지 배웠어
+// 문제가 하나 있다. 잇츠 버그 버그 / 기존 class 을 잃어버린다 뿡뿡
+
+// classList 를 사용해보자
+// class를 목록으로 작업할 수 있다
+// contains
+// 우리가 명시한 class 가 HTML element class 에 포함되어 있는지!
+
+const title = document.querySelector(".hello h1");
+
+function handleTitleClick(){
+    // const clickedClass = "clicked";
+    // if(title.classList.contains(clickedClass)){  // class 에 포함되어있다면
+    //     title.classList.remove(clickedClass);  // 지워주세용
+    // } else {
+    //     title.classList.add(clickedClass); // 아니라면 포함시켜주세용
+    // }
+
+    // 위 5줄 코드와 정확히 똑같은 코드를 한 줄로 만들어볼게요
+    // it's toggle
+    title.classList.toggle("clicked");
+}
+
+title.addEventListener("click", handleTitleClick);
