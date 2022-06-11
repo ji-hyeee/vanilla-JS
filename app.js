@@ -353,3 +353,49 @@ function handleTitleClick(){
 }
 
 title.addEventListener("click", handleTitleClick);
+
+// 0611 토 퀴즈 / 오답노트
+// 나 진짜 생처음으로 문제 틀린 날임
+
+// 오답노트 1
+// How can I find all the <a> ?
+
+// 정답
+// document.getElementsByTagName("a")
+
+// 오답
+// document.querySelector("a")
+// 이건 a 요소 맨 첫번째만 가져오는거에요 아시겠어요?
+// 정신차리세요 문제를 찬찬히 잘 읽읍시다
+
+
+// 오답노트 2
+// What is the difference between using className and classList
+
+// 정답
+// className replaces all classes, classList doesn't
+// 클래스네임은 모든 클래스를 대체한다고 아예 바꿔버린다고요 지정한걸로 기존에 있는 걸 지워버린다고요!!!!
+
+// 오답
+// classList replaces all classes, className doesn't
+// 이건 근데 헷갈릴만 했음 잘 알아두기를...
+
+
+// 헷갈렸던 문제 1
+// What does classList.toggle do?
+// 정답
+// It adds a class if it does not exist and removes a class that exists.
+// 존재하지 않는 클래스를 추가하고 존재하는 클래스를 제거합니다.
+// 헷갈렸다기보단 영어장벽으로 사기가 떨어져버리는 문제. 영어 공부 좀 하자
+
+// 추가적으로 확실히 알고 넘어가기
+// 자바스크립트로 HTML element 를 가져올 수 있다
+// 자바스크립트로 CSS 를 변경할 수 있다
+// document !== window
+
+// element 가져오기
+// document.getElementById()
+// document.getElementsByClassName()
+// document.getElementsByTagName()
+// document.querySelectorAll()
+// document.querySelector()
