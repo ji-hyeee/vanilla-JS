@@ -9,43 +9,29 @@
     <title>Momentum</title>
 </head>
 <body>
-    <!-- id -->
-    <!-- <h1 id="title">Grab me!</h1> -->
-
-    <!-- className -->
-    <!-- 
-    <h1 class="hello">Grab me!</h1>
-    <h1 class="hello">Grab me!</h1>
-    <h1 class="hello">Grab me!</h1>
-    -->
-
-    <!-- div 안에 있는 h1 가져오기 -->
-    <!-- 
-    <div class="hello">
-        <h1>Grab me!</h1>
-    </div> 
-    -->
-
-    <!-- 여러개의 동일한 class 를 가진 태그들 -->
-    <!-- 
-    <div class="hello">
-        <h1>Grab me 1</h1>
-    </div>
-    <div class="hello">
-        <h1>Grab me 2</h1>
-    </div>
-    <div class="hello">
-        <h1>Grab me 3</h1>
-    </div> 
-    -->
-
-    <!-- Click event -->
-    <div class="hello">
-        <!-- 만약 class 가 있는 상태로 시작하면 어떻게 될까? -->
-        <h1 class="sexy-font">Click me!</h1>
-    </div> 
+    <div id="login-form">
+        <!-- value = "안녕" 미리 작성해줄수도 있다 / 텍스트 선입력 -->
+        <input type="text" placeholder="What is your name?" /> 
+        <button>Log In</button>
+    </div>  
 
     <!-- 자바스크립트 파일 연결 -->
     <script src="app.js"></script>
 </body>
 </html>
+
+<!-- 
+#4.0 Input Values
+user 에게 질문하기 > 누구세요, 이름이 뭐세요
+그 다음에 정보들을 어떻게 받을지 배워보자
+그리고 그 정보를 화면에 표시하자
+
+JS 에는 사실 value 를 기억하게 하는 아주 쉬운 방법이 있다 / user 의 이름을 기억하는 것처럼
+모든 것은 HTML 에서 시작된다
+HTML 작성 후 element 를 JS 로 끌고 와서 작업해주기 
+
+input 과 button 을 만들어주자
+이 앱에서 많이 사용할거니까 이름을 더 잘 지을 필요가 있다
+div 안에 집어 넣고 class 를 추가해주자 / id 여도 상관없음
+여기서 사용한 classname 을 다시 사용하면 안된다는 것만 기억하기
+-->
