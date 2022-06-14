@@ -321,3 +321,136 @@
 // loginForm.addEventListener('submit', onLoginSubmit);
 
 // 하지만 아직도 새로고침하면 form 이 표시된다
+
+
+
+
+
+//// #4.6 Loading Username
+// form 을 보여주기 전에, addEventListener 를 하기 전에
+// localStorage 가 비어있는지 확인하자
+// 정보가 있다면 form 을 보여주면 안돼
+
+// 우리가 할 일
+// local storage 에 유저 정보 유무를 확인하기
+// 정보가 없으면 결과는 null
+
+// const loginForm = document.querySelector("#login-form"); 
+// const loginInput = document.querySelector("#login-form input");
+// const greeting = document.querySelector("#greeting") 
+
+// const HIDDEN_CLASSNAME = "hidden"; 
+// const USERNAME_KEY = "username"
+
+// function onLoginSubmit(event){ 
+//     event.preventDefault();
+//     loginForm.classList.add(HIDDEN_CLASSNAME);
+//     const username = loginInput.value;
+//     localStorage.setItem(USERNAME_KEY, username);
+//     paintGreetings(savedUsername);
+// }
+
+// // 동일한 코드를 함수로 맹글어 버리자
+// function paintGreetings(name){
+//     greeting.innerText = `Hello ${name}`; 
+//     greeting.classList.remove(HIDDEN_CLASSNAME);
+// }
+
+// const savedUsername = localStorage.getItem(USERNAME_KEY); // string 변수 설정
+
+// if(savedUsername === null){
+//     // show the form
+//     loginForm.classList.remove(HIDDEN_CLASSNAME);
+//     loginForm.addEventListener('submit', onLoginSubmit);
+// } else {
+//     // show the h1(greetings)
+//     paintGreetings(savedUsername);
+// }
+
+// form 과 h1 이 모두 숨은 상태로 시작해야할 것 같아 >>> go to html
+
+// function paintGreetings(username){
+//     greeting.innerText = `Hello ${username}`; 
+//     greeting.classList.remove(HIDDEN_CLASSNAME);
+// }
+// username 을 인자로 받는 함수를 만들었다
+// 어디서 호출되느냐에 따라 rname 은 달라질겨
+// local storage 에 유저 정보가 있으면 거기서 받아서 인자로 넣어줄거다
+// 없다면 input 에서 받은 user 를 가진 paintGreetings 를 호출할거야 
+
+// 헷갈릴까봐 가져온 똑똑이들의 답변
+// 이 두 개에 들어간 'username' 때문에
+// 저처럼 헷갈리신 분들 있을 것 같아서 공유해봅니다.
+// function paintGreetings(username) {
+// greeting.innerText = `Hello ${username}`;
+
+// 결론은, 이 함수 한정, username을 아무거나로 바꿔도 됩니다.
+// 저는 abc로 바꿔놨어요.
+
+// 여기서 abc는 단순 '매개변수(parameter)'입니다.
+// 완성된 함수를 써먹을 때 괄호 안에 입력한 값들을
+// 함수 안에 실행되어야 하는 식에 대입해주는 역활이에요.
+
+// function plus(a, b) { console.log(a + b);}
+// plus(2, 3); 여기서 괄호 안 2, 3은 '인자(Argument)'입니다.
+// 함수 속 식으로 전달되는 값들이죠.
+// 그러면 a + b 자리에 2 + 3이 되서 콘솔 로그에 5가 표시 되겠죠?
+
+// 즉, 자바스크립트한테 이렇게 알려주는 거죠.
+
+// function paintGreetings(abc) =====>
+// 이 함수 안에 만들어야 되는 식이 있으니,
+// 함수가 호출 될 때 입력된 '인자'를 받아서
+// 식에 대입해 줄 '매개변수'를 abc 라고 하겠습니다.
+
+// greeting.innerText = `Hello ${abc}`; =====>
+// 나중에 이 함수가 호출되면 `Hello ${abc}`라는
+// 식 속에 입력된 '인자'를 넣으세요.
+
+// paintGreetings(username); 이면 상수 username의 loginInput.value가
+// abc 자리로 가는 거고, paintGreetings(savedUsername);이면 localStorage에서
+// 꺼내오는 상수 USERNAME_KEY에 대응하는 키 username의 입력된 이름 value가 abc 자리로 가는 거죠.
+
+
+
+
+
+//// #4.7 Super Recap
+// 리팩토링
+const loginForm = document.querySelector("#login-form"); 
+const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting") 
+
+const HIDDEN_CLASSNAME = "hidden"; 
+const USERNAME_KEY = "username"
+
+function onLoginSubmit(event){ 
+    event.preventDefault();
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    // const username = loginInput.value;
+    localStorage.setItem(USERNAME_KEY, username);
+    paintGreetings(); // 인자 지움
+}
+
+// 동일한 코드를 함수로 맹글어 버리자
+function paintGreetings(){ // 인자 지움
+    // 변수를 만들고 local storage 에 있는 username 을 찾도록 작성해주자
+    const username = localStorage.getItem(USERNAME_KEY);
+    greeting.innerText = `Hello ${username}`; 
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+}
+
+const savedUsername = localStorage.getItem(USERNAME_KEY); // string 변수 설정
+
+if(savedUsername === null){
+    // show the form
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener('submit', onLoginSubmit);
+} else {
+    // show the h1(greetings)
+    paintGreetings(); // 인자 지움
+}
+
+// paintGreetings 함수는 따로 인자를 받을 필요가 없다
+// 왜냐면 우리는 local storage 에 유저정보가 존재하는 걸 알고 있잖니
+// 이렇게 코드를 쓰면 로컬스토리지 조회를 두 번 한다 / 전 코드가 더 낫다//...?
