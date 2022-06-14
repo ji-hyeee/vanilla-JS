@@ -1,0 +1,8 @@
+/* #4.4 Getting Username */
+/* hidden 이라는 classname 을 만들겨 */
+
+.hidden{
+    display: none;
+}
+
+/* classname 을 주면 그 요소는 숨는겨 >>> go to js*/
