@@ -4,67 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- css 파일 연결 -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Momentum</title>
 </head>
 <body>
-    <!-- form 에도 class 추가 -->
     <form id="login-form" class="hidden">
-        <!-- value = "안녕" 미리 작성해줄수도 있다 / 텍스트 선입력 -->
         <input required maxlength="15" type="text" placeholder="What is your name?" /> 
         <button>Log In</button>
     </form> 
-    <!-- 다른 HTML 요소 추가하기 + class 추가 -->
-    <!-- id 추가 -->
+    <!-- 시계를 만들어보자 -->
+    <!-- defalut 값 맹글어주기 00:00:00 -->
+    <h2 id="clock">00:00:00</h2>
     <h1 id="greeting" class="hidden"></h1>
-
-    <!-- <a href="https://nomadcoders.co">Go Go</a> <<< 연습용 -->
-    <!-- 자바스크립트 파일 연결 -->
-    <script src="app.js"></script>
+    <script src="js/greeting.js"></script>
+    <script src="js/clock.js"></script>
 </body>
 </html>
-
+ 
 <!-- 
-#4.0 Input Values
-user 에게 질문하기 > 누구세요, 이름이 뭐세요
-그 다음에 정보들을 어떻게 받을지 배워보자
-그리고 그 정보를 화면에 표시하자
-
-JS 에는 사실 value 를 기억하게 하는 아주 쉬운 방법이 있다 / user 의 이름을 기억하는 것처럼
-모든 것은 HTML 에서 시작된다
-HTML 작성 후 element 를 JS 로 끌고 와서 작업해주기 
-
-input 과 button 을 만들어주자
-이 앱에서 많이 사용할거니까 이름을 더 잘 지을 필요가 있다
-div 안에 집어 넣고 class 를 추가해주자 / id 여도 상관없음
-여기서 사용한 classname 을 다시 사용하면 안된다는 것만 기억하기
--->
-
-
-<!-- 
-#4.1 Form Submission
-input 을 필수입력 항목으로 만들어 줄 수 있다 >>> required
-input 자체적으로 최대 글자수를 조정할 수 있다 >>> maxlength = "12"
-문제는 log in 버튼을 클릭할 때 HTML 에서 확인 작업을 안 하는 것 !
-이유는 ??? input 을 감싸고 있는 요소가 form 이 아니기 때문 (div) 
-input 의 유효성 검사를 작동시키기 위해서는 form 안에 있어야 한다 ! >>> go to js
--->
-
-
-<!-- 
-#4.3 Events part Two
-form 은 잠시 쉬어가고 a 태그로 링크를 맹글자
-JS 를 이용해서 기본 동작을 막아보자 
-저번 시간에 form 의 기본 동작은 submit 이라는 걸 배웠더
-그럼 링크의 기본 동작은 뭘까? >>> 클릭시 다른 페이지로 이동
-이걸 막아보자 >>> go to js
--->
-
-
-<!-- 
-#4.4 Getting Username
-다른 HTML 요소 추가하기
-다음으로 할 일은 form 은 숨기고 h1 은 표시하기
-대신 h1 에 표시할 텍스트가 있을 때만 표시되도록 맹글기 >>> go to js
+#5.0 Intervals
+폴더 생성 후 자바스크립트 파일 생성 ! 
 -->
