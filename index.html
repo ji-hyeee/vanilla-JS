@@ -1,29 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Momentum</title>
-</head>
-<body>
+  </head>
+  <body>
     <form id="login-form" class="hidden">
-        <input required maxlength="15" type="text" placeholder="What is your name?" /> 
-        <button>Log In</button>
-    </form> 
+      <input
+        required
+        maxlength="15"
+        type="text"
+        placeholder="What is your name?"
+      />
+      <button>Log In</button>
+    </form>
     <h2 id="clock">00:00:00</h2>
     <h1 id="greeting" class="hidden"></h1>
-    <!-- #6.0 Quotes -->
-    <!-- 명언 만들기 -->
+    <form action="" id="todo-form">
+      <!-- required === 필수 -->
+      <input type="text" placeholder="Write a To Do and Press Enter" required />
+      <ul id="todo-list"></ul>
+    </form>
     <div id="quote">
-        <span></span>
-        <span></span>
+      <span></span>
+      <span></span>
     </div>
     <script src="js/greeting.js"></script>
     <script src="js/clock.js"></script>
     <script src="js/quotes.js"></script>
     <script src="js/background.js"></script>
-</body>
+    <script src="js/todo.js"></script>
+  </body>
 </html>
 
+<!-- 
+#7.0 Setup
+todo list 를 만들기 위해서 필요한 것들
+form 그리고 list (목록 나열을 위해)
+
+우리는 비어있는 list 를 만들고 그 목록들은 자바스크립트로 만들겨
+
+이제 form 과 ul 을 자바스크립트로 가져가자 >>> go to JS
+-->
