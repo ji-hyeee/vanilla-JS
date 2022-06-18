@@ -15,15 +15,16 @@
         type="text"
         placeholder="What is your name?"
       />
-      <button>Log In</button>
+      <input type="submit" value="Log In" />
     </form>
     <h2 id="clock">00:00:00</h2>
     <h1 id="greeting" class="hidden"></h1>
     <form action="" id="todo-form">
       <!-- required === 필수 -->
       <input type="text" placeholder="Write a To Do and Press Enter" required />
-      <ul id="todo-list"></ul>
     </form>
+    <!-- ul은 폼 아래의 목록이므로 form 요소 밖에 있어야 합니다 바보바보바보야 -->
+    <ul id="todo-list"></ul>
     <div id="quote">
       <span></span>
       <span></span>
